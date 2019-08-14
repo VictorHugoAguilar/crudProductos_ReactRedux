@@ -1,5 +1,10 @@
 import React, { useState} from 'react';
 
+// importamos las acciones
+import { crearNuevoProductoAction } from '../actions/productosActions';
+
+import { useDispatch } from 'react-redux';
+
 
 const NuevoProducto = () => {
 
@@ -7,9 +12,15 @@ const NuevoProducto = () => {
     const [nombre, setNombre]  = useState('');
     const [precio, setPrecio] = useState('');
 
+    // Crear nuevo producto
+    const dispatch = useDispatch();
+    const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto) )
+
     // Añadimos el nuevo producto
     const submitNuevoProducto = (e) => {
         e.preventDefault();
+
+        agregarProducto({ nombre, precio})
 
         // validamos los datos del formulario y mostrar error
         if (nombre.trim() === '' || precio.trim() === '') {
