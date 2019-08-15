@@ -1,8 +1,41 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## APLICACIÓN PARA GESTION DE PRODUCTOS
+
+App para gestionar un CRUD de productos con react, redux, a traves de API REST,
+generando una con JSON.server para poder hacer las consultas desde el front.
+Antes de ejecutar el proceso debemos de levantar el servidor JSON
+a través de 
+
+Para instalarlo
+
+usurio$ sudo npm install -g json-server
+
+Creamos en la raiz del proyecto un archivo db.json con la estructura de los datos
+que utilizaremos en nuestro proyecto ejemplo
+
+{
+  "libros": [
+    {
+      "id": 1,
+      "nombre": "Aprendiendo Redux",
+      "precio": 30
+    },
+  ]
+}
+
+Para ejecutarlo
+
+usuario$ json-server --watch db.json -p 4000
+
+Utilizamos el puerto 4000 en local ya que el 3000 lo necesitamos para
+levantar react.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
+
 
 ### `npm start`
 
