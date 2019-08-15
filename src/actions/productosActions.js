@@ -65,7 +65,7 @@ export function obtenerProductosAction() {
                 dispatch(descargaProductoError());
             });
     };
-};
+}
 
 export const obtenerProductosComienzo = () => ({
     type: COMENZAR_DESCARGA_PRODUCTOS
@@ -82,12 +82,35 @@ export const descargaProductoError = () => ({
 
 // funcion para eliminar un producto especifico
 
-export function borrarProductoAction( id ) {
-    return (dispatch) => { 
+export function borrarProductoAction(id) {
+    return dispatch => {
         dispatch(obtenerProductoEliminar());
-    }
-};
+
+        // Eliminar en la api
+        clienteAxios
+            .delete(`/libros/${id}`)
+            .then(respuesta => {
+                // console.log(respuesta);
+                if (respuesta.status === 200 && respuesta.statusText === "OK")
+                    dispatch(eliminarProductoExito(id));
+            })
+            .catch(error => {
+                // console.log(error);
+                dispatch(eliminarProductoError());
+            });
+    };
+}
 
 export const obtenerProductoEliminar = () => ({
     type: OBTENER_PRODUCTO_ELIMINAR
+});
+
+export const eliminarProductoExito = id => ({
+    type: PRODUCTO_ELIMINADO_EXITO,
+    payload: id
+});
+
+export const eliminarProductoError = () => ({
+    type: PRODUCTO_ELIMINADO_ERROR,
+    error: true
 });

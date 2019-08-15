@@ -27,7 +27,7 @@ const Producto = props => {
             confirmButtonText: "Si, borrarlo!"
         }).then(result => {
             if (result.value) {
-                dispatch(borrarProductoAction());
+                dispatch(borrarProductoAction(id));
                 Swal.fire(
                     "Eliminado!",
                     "El producto se ha eliminado.",

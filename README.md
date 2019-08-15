@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## APLICACIÓN PARA GESTION DE PRODUCTOS
 
 App para gestionar un CRUD de productos con react, redux, a traves de API REST,

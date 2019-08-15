@@ -28,38 +28,36 @@ const Productos = () => {
                 <div className="font-weight-bold alert alert-danger text-center mt-4">
                     Se ha producido un fallo en la consulta
                 </div>
-            ) : (
-                <div>
-                    <h2 className="text-center my-5">Listado de Productos</h2>
-                    <table className="table table-striped">
-                        <thead className="bg-primary table-dark">
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col" className="text-right pr-5">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {productos.map(producto => (
-                                <ProductoU
-                                    key={producto.id}
-                                    producto={producto}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
-                    {loading ? (
-                        <div className="text-center">
-                            <div
-                                className="spinner-border text-secondary"
-                                role="status"
-                            >
-                                <span className="sr-only">Loading...</span>
-                            </div>
+            ) : null}
+            <div>
+                <h2 className="text-center my-5">Listado de Productos</h2>
+                <table className="table table-striped">
+                    <thead className="bg-primary table-dark">
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col" className="text-right pr-5">
+                                Acciones
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {productos.map(producto => (
+                            <ProductoU key={producto.id} producto={producto} />
+                        ))}
+                    </tbody>
+                </table>
+                {loading ? (
+                    <div className="text-center">
+                        <div
+                            className="spinner-border text-secondary"
+                            role="status"
+                        >
+                            <span className="sr-only">Loading...</span>
                         </div>
-                    ) : null}
-                </div>
-            )}
+                    </div>
+                ) : null}
+            </div>
         </React.Fragment>
     );
 };

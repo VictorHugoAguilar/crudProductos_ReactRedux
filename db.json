@@ -1,39 +1,29 @@
 {
   "libros": [
     {
-      "id": 1,
-      "nombre": "Aprendiendo Redux",
-      "precio": 30
-    },
-    {
-      "id": 2,
-      "nombre": "Aprendiendo React",
-      "precio": 35
-    },
-    {
-      "id": 3,
-      "nombre": "Aprendiendo Node",
-      "precio": 45
-    },
-    {
       "nombre": "la casa de papel",
       "precio": "24",
       "id": 4
     },
     {
-      "nombre": "cas",
-      "precio": "12",
+      "nombre": "La casa de papel",
+      "precio": "34",
       "id": 5
     },
     {
-      "nombre": "El señor de los anillos",
-      "precio": "34",
+      "nombre": "101 dalmatas",
+      "precio": "23",
       "id": 6
     },
     {
-      "nombre": "La casa de la pradera",
-      "precio": "12",
+      "nombre": "ToysTory",
+      "precio": "13",
       "id": 7
+    },
+    {
+      "nombre": "Blanca Nieve",
+      "precio": "23",
+      "id": 8
     }
   ]
 }
