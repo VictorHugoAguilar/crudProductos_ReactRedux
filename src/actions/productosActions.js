@@ -4,7 +4,10 @@ import {
     AGREGAR_PRODUCTO_ERROR,
     COMENZAR_DESCARGA_PRODUCTOS,
     DESCARGA_PRODUCTOS_EXITOSA,
-    DESCARGA_PRODUCTOS_ERROR
+    DESCARGA_PRODUCTOS_ERROR,
+    OBTENER_PRODUCTO_ELIMINAR,
+    PRODUCTO_ELIMINADO_EXITO,
+    PRODUCTO_ELIMINADO_ERROR
 } from "../types";
 
 import clienteAxios from "../config/axios";
@@ -62,7 +65,7 @@ export function obtenerProductosAction() {
                 dispatch(descargaProductoError());
             });
     };
-}
+};
 
 export const obtenerProductosComienzo = () => ({
     type: COMENZAR_DESCARGA_PRODUCTOS
@@ -75,4 +78,16 @@ export const descargaProductosExitosa = productos => ({
 
 export const descargaProductoError = () => ({
     type: DESCARGA_PRODUCTOS_ERROR
+});
+
+// funcion para eliminar un producto especifico
+
+export function borrarProductoAction( id ) {
+    return (dispatch) => { 
+        dispatch(obtenerProductoEliminar());
+    }
+};
+
+export const obtenerProductoEliminar = () => ({
+    type: OBTENER_PRODUCTO_ELIMINAR
 });

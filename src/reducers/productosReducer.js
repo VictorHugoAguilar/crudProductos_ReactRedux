@@ -56,15 +56,19 @@ export default function(state = initialState, action) {
             };
         case OBTENER_PRODUCTO_ELIMINAR:
             return {
-                ...state
+                ...state,
+                error: null
             };
         case PRODUCTO_ELIMINADO_EXITO:
             return {
-                ...state
+                ...state,
+                productos: state.productos.filter( producto => producto.id !== action.payload )  
             };
         case PRODUCTO_ELIMINADO_ERROR:
             return {
-                ...state
+                ...state,
+                error: true
+            
             };
         default:
             return {
