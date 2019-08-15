@@ -19,6 +19,21 @@
       "nombre": "la casa de papel",
       "precio": "24",
       "id": 4
+    },
+    {
+      "nombre": "cas",
+      "precio": "12",
+      "id": 5
+    },
+    {
+      "nombre": "El señor de los anillos",
+      "precio": "34",
+      "id": 6
+    },
+    {
+      "nombre": "La casa de la pradera",
+      "precio": "12",
+      "id": 7
     }
   ]
 }
