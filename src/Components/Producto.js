@@ -8,7 +8,6 @@ import { borrarProductoAction } from "../actions/productosActions";
 
 const Producto = props => {
     // console.log(props);
-
     const { id, nombre, precio } = props.producto;
 
     // Dispatch para ejecutar las funciones

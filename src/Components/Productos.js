@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 // Importamos componentes
-import ProductoU from "./Producto";
+import Producto from "./Producto";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,7 @@ const Productos = () => {
         // Productos cuando el componente esta listo
         const cargaProductos = () => dispatch(obtenerProductosAction());
         cargaProductos();
-    }, []);
+    }, [dispatch]);
 
     // Acceder al state
     const loading = useSelector(state => state.productos.loading);
@@ -43,7 +43,10 @@ const Productos = () => {
                     </thead>
                     <tbody>
                         {productos.map(producto => (
-                            <ProductoU key={producto.id} producto={producto} />
+                            <Producto
+                                key={producto.id}
+                                producto={producto}
+                            />
                         ))}
                     </tbody>
                 </table>
