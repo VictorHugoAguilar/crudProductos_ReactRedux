@@ -1,9 +1,9 @@
 {
   "libros": [
     {
+      "id": 4,
       "nombre": "la casa de papel",
-      "precio": "24",
-      "id": 4
+      "precio": "23"
     },
     {
       "nombre": "La casa de papel",
@@ -44,6 +44,11 @@
       "nombre": "casa",
       "precio": "234",
       "id": 12
+    },
+    {
+      "nombre": "Victor",
+      "precio": "45",
+      "id": 13
     }
   ]
 }

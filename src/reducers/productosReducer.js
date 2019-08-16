@@ -10,7 +10,10 @@ import {
     PRODUCTO_ELIMINADO_ERROR,
     OBTENER_PRODUCTO_EDITAR,
     PRODUCTO_EDITAR_EXITO,
-    PRODUCTO_EDITAR_ERROR
+    PRODUCTO_EDITAR_ERROR,
+    COMENZAR_EDICION_PRODUCTO,
+    PRODUCTO_EDITADO_EXITO,
+    PRODUCTO_EDITADO_ERROR
 } from "../types";
 
 // cada reducer tiene su propio state
@@ -43,7 +46,7 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 loading: true,
-                producto:{}
+                producto: {}
             };
         case DESCARGA_PRODUCTOS_EXITOSA:
             return {
@@ -51,7 +54,7 @@ export default function(state = initialState, action) {
                 productos: action.payload,
                 loading: false,
                 error: false,
-                producto:{}
+                producto: {}
             };
         case DESCARGA_PRODUCTOS_ERROR:
             return {
@@ -59,7 +62,7 @@ export default function(state = initialState, action) {
                 productos: [],
                 error: true,
                 loading: false,
-                producto:{}
+                producto: {}
             };
         case OBTENER_PRODUCTO_ELIMINAR:
             return {
@@ -69,7 +72,7 @@ export default function(state = initialState, action) {
         case PRODUCTO_ELIMINADO_EXITO:
             return {
                 ...state,
-                error:null,
+                error: null,
                 productos: state.productos.filter(
                     producto => producto.id !== action.payload
                 )
@@ -82,18 +85,38 @@ export default function(state = initialState, action) {
         case OBTENER_PRODUCTO_EDITAR:
             return {
                 ...state,
-                error:null
+                error: null
             };
         case PRODUCTO_EDITAR_EXITO:
             return {
                 ...state,
-                error:null,
+                error: null,
                 producto: action.payload
             };
         case PRODUCTO_EDITAR_ERROR:
             return {
                 ...state,
-                error:true
+                error: true
+            };
+        case COMENZAR_EDICION_PRODUCTO:
+            return {
+                ...state,
+                error: null
+            };
+        case PRODUCTO_EDITADO_EXITO:
+            return {
+                ...state,
+                error: null,
+                productos: state.productos.map(producto =>
+                    producto.id === action.payload.id
+                        ? (producto = action.payload)
+                        : producto
+                )
+            };
+        case PRODUCTO_EDITADO_ERROR:
+            return {
+                ...state,
+                error: true
             };
         default:
             return {
